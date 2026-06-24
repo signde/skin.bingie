@@ -2210,11 +2210,36 @@
             <size>19</size>
 			<linespacing>1.10</linespacing>
         </font>
-		<font>
-            <name>landscapetaglarge</name>
-            <filename>Inter-Regular.ttf</filename>
-            <size>29</size>
-			<linespacing>1</linespacing>
-        </font>
-	</fontset>	
-</fonts>
+			<font>
+	            <name>landscapetaglarge</name>
+	            <filename>Inter-Regular.ttf</filename>
+	            <size>29</size>
+				<linespacing>1</linespacing>
+	        </font>
+			<font>
+	            <name>font_tiny</name>
+	            <filename>Inter-Regular.ttf</filename>
+	            <size>24</size>
+	        </font>
+			<font>
+	            <name>font_p3i_tiny</name>
+	            <filename>Inter-Regular.ttf</filename>
+	            <size>15</size>
+	        </font>
+			<font>
+	            <name>font_p3i_icon</name>
+	            <filename>fa-solid-900.ttf</filename>
+	            <size>1</size>
+	        </font>
+			<font>
+	            <name>font_tiny_iconic_regular</name>
+	            <filename>fa-regular-400.ttf</filename>
+	            <size>24</size>
+	        </font>
+			<font>
+	            <name>font_tiny_iconic_solid</name>
+	            <filename>fa-solid-900.ttf</filename>
+	            <size>24</size>
+	        </font>
+		</fontset>
+	</fonts>
