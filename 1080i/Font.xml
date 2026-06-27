@@ -767,11 +767,16 @@
             <size>20</size>
         </font>
 		<font>
-            <name>landscapetaglarge</name>
-            <filename>Netflix-sans-medium.ttf</filename>
+	            <name>landscapetaglarge</name>
+	            <filename>Netflix-sans-medium.ttf</filename>
 			<style>lighten</style>
-            <size>30</size>
-        </font>
+	            <size>30</size>
+	        </font>
+		<font>
+			<name>font_tiny_iconic</name>
+			<filename>fa-solid-900.ttf</filename>
+			<size>22</size>
+		</font>
 	</fontset>
 	<fontset id="Arial" unicode="true">
 		<!-- ==================== -->
@@ -1514,11 +1519,16 @@
 			<linespacing>1.14</linespacing>
         </font>
 		<font>
-            <name>landscapetaglarge</name>
-            <filename>Arial.ttf</filename>
-            <size>29</size>
+	            <name>landscapetaglarge</name>
+	            <filename>Arial.ttf</filename>
+	            <size>29</size>
 			<linespacing>1.04</linespacing>
-        </font>
+	        </font>
+		<font>
+			<name>font_tiny_iconic</name>
+			<filename>fa-solid-900.ttf</filename>
+			<size>22</size>
+		</font>
 	</fontset>
 	<fontset id="Inter" unicode="true">
 		<!-- ==================== -->
@@ -2222,24 +2232,14 @@
 	            <size>24</size>
 	        </font>
 			<font>
-	            <name>font_p3i_tiny</name>
-	            <filename>Inter-Regular.ttf</filename>
-	            <size>15</size>
-	        </font>
+		            <name>font_p3i_tiny</name>
+		            <filename>Inter-Regular.ttf</filename>
+		            <size>15</size>
+		        </font>
 			<font>
-	            <name>font_p3i_icon</name>
-	            <filename>fa-solid-900.ttf</filename>
-	            <size>1</size>
-	        </font>
-			<font>
-	            <name>font_tiny_iconic_regular</name>
-	            <filename>fa-regular-400.ttf</filename>
-	            <size>24</size>
-	        </font>
-			<font>
-	            <name>font_tiny_iconic_solid</name>
-	            <filename>fa-solid-900.ttf</filename>
-	            <size>24</size>
-	        </font>
+				<name>font_tiny_iconic</name>
+				<filename>fa-solid-900.ttf</filename>
+				<size>22</size>
+			</font>
 		</fontset>
 	</fonts>

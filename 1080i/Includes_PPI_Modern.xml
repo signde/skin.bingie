@@ -90,11 +90,10 @@
 					
 					<!-- Video Icon -->
 					<control type="label">
-						<label></label>
+						<label>&#xf8a9;</label>
 						<top>-25</top>
-						<font>font_p3i_icon</font>
+						<font>font_tiny_iconic</font>
 						<textcolor>dialog_fg_100</textcolor>
-						<visible>false</visible>
 					</control>
 					
 					<!-- Video -->
@@ -236,11 +235,10 @@
 					
 					<!-- Processing Icon -->
 					<control type="label">
-						<label></label>
+						<label>&#xf301;</label>
 						<top>-25</top>
-						<font>font_p3i_icon</font>
+						<font>font_tiny_iconic</font>
 						<textcolor>dialog_fg_100</textcolor>
-						<visible>false</visible>
 					</control>
 					
 					<!-- Processing -->
@@ -393,11 +391,10 @@
 					
 					<!-- HDR Static Metadata Icon -->
 					<control type="label">
-						<label></label>
+						<label>&#xf5fd;</label>
 						<top>-25</top>
-						<font>font_p3i_icon</font>
+						<font>font_tiny_iconic</font>
 						<textcolor>dialog_fg_100</textcolor>
-						<visible>false</visible>
 					</control>
 					
 					<!-- HDR Static Metadata -->
@@ -466,11 +463,10 @@
 					
 					<!-- System Icon -->
 					<control type="label">
-						<label></label>
+						<label>&#xe253;</label>
 						<top>-25</top>
-						<font>font_p3i_icon</font>
+						<font>font_tiny_iconic</font>
 						<textcolor>dialog_fg_100</textcolor>
-						<visible>false</visible>
 					</control>
 					
 					<!-- System -->
@@ -691,11 +687,10 @@
 					
 					<!-- Audio Icon -->
 					<control type="label">
-						<label></label>
+						<label>&#xf8f2;</label>
 						<top>-25</top>
-						<font>font_p3i_icon</font>
+						<font>font_tiny_iconic</font>
 						<textcolor>dialog_fg_100</textcolor>
-						<visible>false</visible>
 					</control>
 					
 					<!-- Audio -->
@@ -1056,11 +1051,10 @@
 					
 					<!-- Metadata Icon -->
 					<control type="label">
-						<label></label>
+						<label>&#xf5fd;</label>
 						<top>-25</top>
-						<font>font_p3i_icon</font>
+						<font>font_tiny_iconic</font>
 						<textcolor>dialog_fg_100</textcolor>
-						<visible>false</visible>
 					</control>
 					
 					<!-- Metadata -->
@@ -1248,25 +1242,6 @@
 						<top>201</top>
 						<label>$INFO[Player.Process(video.dovi.l5.left.offset)] l $INFO[Player.Process(video.dovi.l5.right.offset)] l $INFO[Player.Process(video.dovi.l5.top.offset)] l $INFO[Player.Process(video.dovi.l5.bottom.offset)]</label>
 						<font>Reg24</font>
-						<textcolor>dialog_fg_90</textcolor>
-						<visible>!String.IsEmpty(Player.Process(video.dovi.l5.detect.state))</visible>
-					</control>
-					<!-- Arrows: Left to right with line icon -->
-					<control type="label">
-						<left>465</left>
-						<top>202</top>
-						<label></label>
-						<font>font_p3i_icon</font>
-						<textcolor>dialog_fg_90</textcolor>
-						<visible>!String.IsEmpty(Player.Process(video.dovi.l5.detect.state))</visible>
-					</control>
-					<!-- Arrows: Top to bottom with line icon -->
-					<control type="label">
-						<left>510</left>
-						<top>216</top>
-						<angle>90</angle>
-						<label></label>
-						<font>font_p3i_icon</font>
 						<textcolor>dialog_fg_90</textcolor>
 						<visible>!String.IsEmpty(Player.Process(video.dovi.l5.detect.state))</visible>
 					</control>
