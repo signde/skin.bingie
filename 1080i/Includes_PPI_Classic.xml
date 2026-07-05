@@ -1123,7 +1123,7 @@
 					</control>
 					<control type="label">
 						<left>190</left>
-												<top>142</top>
+						<top>142</top>
 						<width>260</width>
 						<align>right</align>
 						<label>$INFO[Player.Process(video.dovi.l1.min.nits)] l $INFO[Player.Process(video.dovi.l1.max.nits)] l $INFO[Player.Process(video.dovi.l1.avg.nits)]</label>
@@ -1149,7 +1149,7 @@
 					</control>
 					<control type="label">
 						<left>190</left>
-												<top>169</top>
+						<top>169</top>
 						<width>260</width>
 						<align>right</align>
 						<label>$INFO[Player.Process(video.dovi.l1.min.pq)] l $INFO[Player.Process(video.dovi.l1.max.pq)] l $INFO[Player.Process(video.dovi.l1.avg.pq)]</label>
@@ -1184,7 +1184,7 @@
 					</control>
 					<control type="label">
 						<left>190</left>
-												<width>260</width>
+						<width>260</width>
 						<align>right</align>
 						<top>201</top>
 						<label>$INFO[Player.Process(video.dovi.l5.left.offset)] l $INFO[Player.Process(video.dovi.l5.right.offset)] l $INFO[Player.Process(video.dovi.l5.top.offset)] l $INFO[Player.Process(video.dovi.l5.bottom.offset)]</label>
