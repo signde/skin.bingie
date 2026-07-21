@@ -1172,7 +1172,7 @@
 						<width>185</width>
 						<font>Reg24</font>
 						<textcolor>dialog_fg_90</textcolor>
-						<visible>String.IsEqual(Player.Process(video.dovi.l5.detected),5)</visible>
+						<visible>String.IsEqual(Player.Process(video.dovi.has.l5),1)</visible>
 					</control>
 					<control type="label">
 						<top>201</top>
@@ -1180,7 +1180,7 @@
 						<width>185</width>
 						<font>Reg24</font>
 						<textcolor>dialog_fg_90</textcolor>
-						<visible>!String.IsEmpty(Player.Process(video.dovi.l5.detected))</visible>
+						<visible>false</visible>
 					</control>
 					<control type="label">
 						<left>190</left>
@@ -1190,7 +1190,7 @@
 						<label>$INFO[Player.Process(video.dovi.l5.left.offset)] l $INFO[Player.Process(video.dovi.l5.right.offset)] l $INFO[Player.Process(video.dovi.l5.top.offset)] l $INFO[Player.Process(video.dovi.l5.bottom.offset)]</label>
 						<font>Reg24</font>
 						<textcolor>dialog_fg_90</textcolor>
-						<visible>!String.IsEmpty(Player.Process(video.dovi.l5.detect.state))</visible>
+						<visible>String.IsEqual(Player.Process(video.dovi.has.l5),1)</visible>
 					</control>
 				</control>
 			</control>
