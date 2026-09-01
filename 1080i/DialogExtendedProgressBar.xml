@@ -14,7 +14,7 @@
 			<right>20</right>
 			<width>80</width>
 			<top>10</top>
-            <visible>!Window.IsActive(notification) + !Window.IsActive(fullscreenvideo) + !Window.IsVisible(startup)</visible>
+            <visible>!Window.IsActive(notification) + [!Window.IsActive(fullscreenvideo) | !String.IsEmpty(Window(10151).Property(activeareastartup))] + !Window.IsVisible(startup)</visible>
 			<control type="image">
 				<left>20</left>
 				<top>10</top>

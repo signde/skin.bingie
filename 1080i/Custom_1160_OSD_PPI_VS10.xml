@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+    <!-- Delegate the OSD VS10 selector to signde PPI. -->
+    <onload>RunScript(script.signde.tinyppi,dialog)</onload>
+    <onload>Close</onload>
+    <controls />
+</window>
