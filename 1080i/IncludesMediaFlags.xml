@@ -46,11 +46,11 @@
                 <visible>!String.IsEmpty(ListItem.VideoResolution)</visible>
 				<visible>Skin.String(mediaflagsstyle,large) + !Skin.String(mediaflagsstyle,large_color)</visible>
             </control>
-            <control type="image">
-                <include>mediaflags_large_layout</include>
-                <texture background="true">$VAR[mediaflags_large_path]$INFO[ListItem.AudioCodec,/audio/,.png]</texture>
-                <visible>!String.IsEmpty(ListItem.AudioCodec)</visible>
-            </control>
+			<control type="image">
+				<include>mediaflags_large_layout</include>
+				<texture background="true">$VAR[mediaflags_large_path]$VAR[mediaflags_library_audio,/audio/,.png]</texture>
+				<visible>!String.IsEmpty(ListItem.AudioCodec)</visible>
+			</control>
             <control type="image">
                 <include>mediaflags_large_layout</include>
                 <texture background="true">$VAR[mediaflags_large_path]$INFO[ListItem.AudioChannels,/channels/,.png]</texture>
@@ -59,12 +59,12 @@
             <control type="image">
                 <include>mediaflags_large_layout</include>
                 <texture background="true">$VAR[mediaflags_large_path]$VAR[mediaflags_large_source,/video/,.png]</texture>
-                <visible>!String.IsEmpty(ListItem.VideoCodec) + ![String.IsEqual(Listitem.HdrType,hdr10) | String.IsEqual(Listitem.HdrType,dolbyvision) | String.IsEqual(Listitem.HdrType,hlg)]</visible>
+                <visible>!String.IsEmpty(ListItem.VideoCodec) + ![String.IsEqual(Listitem.HdrType,hdr10) | String.IsEqual(Listitem.HdrType,hdr10plus) | String.IsEqual(Listitem.HdrType,hdr10+) | String.IsEqual(Listitem.HdrType,dolbyvision) | String.IsEqual(Listitem.HdrType,hlg)]</visible>
             </control>
 			<control type="image">
                 <include>mediaflags_large_layout</include>
-                <texture background="true">$VAR[mediaflags_large_path]$INFO[Listitem.HdrType,/video/,.png]</texture>
-                <visible>[String.IsEqual(Listitem.HdrType,hdr10) | String.IsEqual(Listitem.HdrType,dolbyvision) | String.IsEqual(Listitem.HdrType,hlg)]</visible>
+				<texture background="true">$VAR[mediaflags_large_path]$VAR[mediaflags_library_hdr,/video/,.png]</texture>
+                <visible>[String.IsEqual(Listitem.HdrType,hdr10) | String.IsEqual(Listitem.HdrType,hdr10plus) | String.IsEqual(Listitem.HdrType,hdr10+) | String.IsEqual(Listitem.HdrType,dolbyvision) | String.IsEqual(Listitem.HdrType,hlg)]</visible>
             </control>
             <control type="image">
                 <include>mediaflags_large_layout</include>
@@ -93,11 +93,27 @@
         </control>
     </include>
     
-    <variable name="mediaflags_large_path">
-        <value condition="!Window.IsActive(fullscreenvideo) + Skin.String(mediaflagsstyle,large_color)">flags/flags_color</value>
-        <value condition="Window.IsActive(fullscreenvideo) + Skin.String(osdmediaflagsstyle,large_color)">flags/flags_color</value>
-        <value>flags/flags_large</value>
-    </variable>
+	<variable name="mediaflags_large_path">
+		<value condition="!Window.IsActive(fullscreenvideo) + Skin.String(mediaflagsstyle,large_color)">flags/flags_color</value>
+		<value condition="Window.IsActive(fullscreenvideo) + Skin.String(osdmediaflagsstyle,large_color)">flags/flags_color</value>
+		<value>flags/flags_large</value>
+	</variable>
+
+	<variable name="mediaflags_library_audio">
+		<value condition="[String.IsEqual(ListItem.AudioCodec,truehd) | String.IsEqual(ListItem.AudioCodec,eac3)] + String.Contains(ListItem.FileNameAndPath,Atmos)">atmos</value>
+		<value condition="String.Contains(ListItem.AudioCodec,atmos)">atmos</value>
+		<value condition="[String.IsEqual(ListItem.AudioCodec,dtshd) | String.IsEqual(ListItem.AudioCodec,dtshd_ma)] + [String.Contains(ListItem.FileNameAndPath,DTS-X) | String.Contains(ListItem.FileNameAndPath,DTSX) | String.Contains(ListItem.FileNameAndPath,DTS:X)]">dts-x</value>
+		<value condition="String.IsEqual(ListItem.AudioCodec,dtshd_ma_x) | String.IsEqual(ListItem.AudioCodec,dtshd_ma_x_imax) | String.IsEqual(ListItem.AudioCodec,dtsx)">dts-x</value>
+		<value>$INFO[ListItem.AudioCodec]</value>
+	</variable>
+
+	<variable name="mediaflags_library_hdr">
+		<value condition="Skin.String(mediaflagsstyle,large_color) + String.IsEqual(ListItem.HdrType,dolbyvision) + String.StartsWith(ListItem.DvProfile,7.) + String.Contains(ListItem.DvProfile,FEL)">dolbyvision_fel</value>
+		<value condition="Skin.String(mediaflagsstyle,large_color) + String.IsEqual(ListItem.HdrType,dolbyvision) + String.StartsWith(ListItem.DvProfile,7.) + String.Contains(ListItem.DvProfile,MEL)">dolbyvision_mel</value>
+		<value condition="Skin.String(mediaflagsstyle,large_color) + [String.IsEqual(ListItem.HdrType,hdr10plus) | String.IsEqual(ListItem.HdrType,hdr10+)]">hdr10plus</value>
+		<value condition="Skin.String(mediaflagsstyle,large_color) + String.IsEqual(ListItem.HdrType,hdr10) + [String.Contains(ListItem.FileNameAndPath,hdr10plus) | String.Contains(ListItem.FileNameAndPath,HDR10Plus) | String.Contains(ListItem.FileNameAndPath,HDR10PLUS) | String.Contains(ListItem.FileNameAndPath,HDR10P)]">hdr10plus</value>
+		<value>$INFO[ListItem.HdrType]</value>
+	</variable>
     
     <include name="mediaflags_large_osd">
         <control type="grouplist">
@@ -566,8 +582,10 @@
 	</variable>
 	
 	<variable name="AudioCodecVar">
-        <value condition="!String.Contains(ListItem.Title,atmos) + String.Contains(ListItem.Filenameandpath,atmos)">ATMOS</value>
-        <value condition="!String.Contains(ListItem.Title,dts-x) + String.Contains(ListItem.Filenameandpath,dts-x) | !String.Contains(ListItem.Title,dtsx) + String.Contains(ListItem.Filenameandpath,dtsx)">DTS-X</value>
+		<value condition="[String.IsEqual(ListItem.AudioCodec,truehd) | String.IsEqual(ListItem.AudioCodec,eac3)] + String.Contains(ListItem.FileNameAndPath,Atmos)">ATMOS</value>
+		<value condition="String.Contains(ListItem.AudioCodec,atmos)">ATMOS</value>
+		<value condition="[String.IsEqual(ListItem.AudioCodec,dtshd) | String.IsEqual(ListItem.AudioCodec,dtshd_ma)] + [String.Contains(ListItem.FileNameAndPath,DTS-X) | String.Contains(ListItem.FileNameAndPath,DTSX) | String.Contains(ListItem.FileNameAndPath,DTS:X)]">DTS-X</value>
+		<value condition="String.IsEqual(ListItem.AudioCodec,dtshd_ma_x) | String.IsEqual(ListItem.AudioCodec,dtshd_ma_x_imax) | String.IsEqual(ListItem.AudioCodec,dtsx)">DTS-X</value>
 
 		<value condition="String.Contains(ListItem.AudioCodec,ac3)">DOLBY</value>
 		<value condition="String.Contains(ListItem.AudioCodec,truehd)">TRUEHD</value>
@@ -582,7 +600,11 @@
         <value condition="!String.IsEmpty(ListItem.AudioCodec)">$INFO[ListItem.AudioCodec]</value>
 		
 		<value condition="Window.IsActive(visualisation) + !String.IsEmpty(MusicPlayer.Codec)">$INFO[MusicPlayer.Codec]</value>
-		<value condition="Window.IsActive(fullscreenvideo) + String.IsEqual(VideoPlayer.AudioCodec,ac3)">DOLBY</value>
+		<value condition="Window.IsActive(fullscreenvideo) + String.IsEqual(VideoPlayer.AudioCodec,ac3)">Dolby Digital</value>
+		<value condition="Window.IsActive(fullscreenvideo) + String.IsEqual(VideoPlayer.AudioCodec,eac3)">Dolby Digital Plus</value>
+		<value condition="Window.IsActive(fullscreenvideo) + String.IsEqual(VideoPlayer.AudioCodec,eac3_ddp_atmos)">Dolby Digital Plus</value>
+		<value condition="Window.IsActive(fullscreenvideo) + String.IsEqual(VideoPlayer.AudioCodec,truehd)">Dolby TrueHD</value>
+		<value condition="Window.IsActive(fullscreenvideo) + String.IsEqual(VideoPlayer.AudioCodec,truehd_atmos)">Dolby TrueHD</value>
 		<value condition="Window.IsActive(fullscreenvideo) + String.IsEqual(VideoPlayer.AudioCodec,dca)">DTS</value>
 		<value condition="Window.IsActive(fullscreenvideo) + String.Contains(VideoPlayer.AudioCodec,dts-hd)">DTS HD</value>
 		<value condition="Window.IsActive(fullscreenvideo) + String.Contains(VideoPlayer.AudioCodec,dtshd)">DTS HD</value>
